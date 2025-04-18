@@ -1,3 +1,4 @@
 danmaku/*
 *.toml
 .*
+/bin/*

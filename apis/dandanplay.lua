@@ -72,9 +72,9 @@ end
 function get_danmaku_args(url)
     local dandanplay_path = utils.join_path(mp.get_script_directory(), "bin")
     if platform == "windows" then
-        dandanplay_path = utils.join_path(dandanplay_path, "dandanplay/dandanplay.exe")
+        dandanplay_path = utils.join_path(dandanplay_path, "dandanplay.exe")
     else
-        dandanplay_path = utils.join_path(dandanplay_path, "dandanplay/dandanplay")
+        dandanplay_path = utils.join_path(dandanplay_path, "dandanplay")
     end
     local args = {
         dandanplay_path,
@@ -360,6 +360,7 @@ function handle_related_danmaku(index, relateds, related, shift, callback)
         else
             show_message("无数据", 3)
             msg.info("无数据")
+            callback(comments)
         end
     end)
 end
