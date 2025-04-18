@@ -1,0 +1,3 @@
+[submodule "modules/dandanplay-gocli"]
+	path = modules/dandanplay-gocli
+	url = https://github.com/slqy123/dandanplay-gocli.git
