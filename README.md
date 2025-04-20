@@ -1,3 +1,49 @@
+> [!IMPORTANT]
+> 本项目为原项目的fork版本，增加了基于dandanplay api的发送弹幕的功能，同时有几点需要注意：
+>
+> 1. 本项目对版本要求更为苛刻，要求 mpv > 0.38.0，lua >= 5.2，或luaJIT。
+> 2. 本项目的第三方依赖并不以二进制的形式直接在仓库中提供，且目前仅支持自行编译，或如果系统中安装了相应工具，则无需安装。（后续这块会完善一下）
+
+<!-- > 2. 本项目的第三方依赖并不以二进制的形式直接在仓库中提供，但可以通过以下方式安装：①：使用仓库提供的脚本从网络下载。②：如果您的操作系统中已经安装了相应软件，并确保其在PATH中，则无需额外安装。③：从release中下载对应平台的含预编译的二进制文件的版本。（暂不支持） -->
+
+具体来说，对于第三方依赖：dandanplay 请自行设置DANDANPLAY_APPID与DANDANPLAY_APPSECRET两个环境变量，并运行`tools/build.sh`脚本。
+
+另外两个依赖：[OpenCC](https://github.com/BYVoid/OpenCC)与[DanmakuFactory](https://github.com/dyphire/DanmakuFactory)，分别对应于简繁转换与弹幕格式转换，也请遵循各自安装说明，或直接从本项目上游下载。
+
+使用方法：
+
+在mpv配置文件夹下的 `script-opts`中创建 `uosc_danmaku.conf`文件并至少配置如下内容，即可正常使用：
+
+```
+username=your_username
+password=your_password
+```
+
+所有可配置项参考如下：
+
+```lua
+-- 用户名和密码，用于向dandanplay服务器发送弹幕
+username = "",
+password = "",
+-- 用户身份验证令牌的缓存路径，支持绝对路径和相对路径
+authorization_token_path = "~~/authentication-token.json",
+-- 发送弹幕时默认的颜色和位置
+user_default_danmaku_color = "white",
+user_danmaku_position = "normal", -- normal, top, bottom
+```
+
+默认发送弹幕的快捷键为 `C`。同时在发送弹幕时可以临时修改颜色与弹幕位置，例如：
+
+```
+/yellow /bottom <弹幕内容>
+```
+
+即可临时将发送弹幕设置为黄色，底部弹幕。
+
+**以下是原项目的README**
+
+---
+
 # uosc_danmaku
 
 在MPV播放器中加载弹弹play弹幕，基于 uosc UI框架和弹弹play API的mpv弹幕扩展插件
@@ -74,7 +120,7 @@
 > 2. 记得给bin文件夹下的文件赋予可执行权限
 
 ```
-~/.config/mpv/scripts 
+~/.config/mpv/scripts
 └── uosc_danmaku
     ├── api.lua
     ├── bin
@@ -634,7 +680,7 @@ title_replace=[{"rules":[{ "^〔(.-)〕": "%1"},{ "^.*《(.-)》": "%1" }]}]
 scrolltime=15
 #字体(名称两边不需要使用引号""括住)
 fontname=sans-serif
-#大小 
+#大小
 fontsize=50
 #是否严格保持指定的字号大小，（true false）
 #这会破坏特效弹幕的显示，建议仅当弹幕显示重叠时启用
