@@ -2,3 +2,4 @@ danmaku/*
 *.toml
 .*
 /bin/*
+!/bin/.gitkeep
