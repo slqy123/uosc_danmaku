@@ -76,8 +76,14 @@ function get_danmaku_args(url, data)
     local dandanplay_path = utils.join_path(mp.get_script_directory(), "bin")
     if platform == "windows" then
         dandanplay_path = utils.join_path(dandanplay_path, "dandanplay.exe")
+        if not file_exists(dandanplay_path) then
+            dandanplay_path = "dandanplay.exe"
+        end
     else
         dandanplay_path = utils.join_path(dandanplay_path, "dandanplay")
+        if not file_exists(dandanplay_path) then
+            dandanplay_path = "dandanplay"
+        end
     end
     local args = {
         dandanplay_path,

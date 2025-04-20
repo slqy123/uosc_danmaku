@@ -397,8 +397,14 @@ function convert_with_danmaku_factory(danmaku_input, danmaku_out, delays, callba
         exec_path = utils.join_path(mp.get_script_directory(), "bin")
         if platform == "windows" then
             exec_path = utils.join_path(exec_path, "DanmakuFactory.exe")
+            if not file_exists(exec_path) then
+                exec_path = "DanmakuFactory.exe"
+            end
         else
             exec_path = utils.join_path(exec_path, "DanmakuFactory")
+            if not file_exists(exec_path) then
+                exec_path = "DanmakuFactory"
+            end
         end
     end
     local danmaku_factory_path = os.getenv("DANMAKU_FACTORY") or exec_path
@@ -488,8 +494,14 @@ function ch_convert(ass_path, case, callback)
         opencc_path = utils.join_path(mp.get_script_directory(), "bin")
         if platform == "windows" then
             opencc_path = utils.join_path(opencc_path, "opencc.exe")
+            if not file_exists(opencc_path) then
+                opencc_path = "opencc.exe"
+            end
         else
             opencc_path = utils.join_path(opencc_path, "opencc")
+            if not file_exists(opencc_path) then
+                opencc_path = "opencc"
+            end
         end
     end
     opencc_path = os.getenv("OPENCC") or opencc_path
