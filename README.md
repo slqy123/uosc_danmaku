@@ -1,4 +1,7 @@
 > [!IMPORTANT]
+> 由于dandanplay目前暂未开放登录与发送弹幕的相关接口，本项目目前处于不可用状态。
+
+> [!IMPORTANT]
 > 本项目为原项目的fork版本，增加了基于dandanplay api的发送弹幕的功能，同时有几点需要注意：
 >
 > 1. 本项目对版本要求更为苛刻，要求 mpv > 0.38.0，lua >= 5.2，或luaJIT。
