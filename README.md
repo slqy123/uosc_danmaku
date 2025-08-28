@@ -1,4 +1,9 @@
 > [!IMPORTANT]
+> [2025-08-28] **本项目归档。**
+> 
+> 另外，我部分重构了一下原项目，仅保留了自己认为有用的核心功能，同时添加了bangumi.tv同步进度的支持，感兴趣可移步[此处](https://github.com/slqy123/mpv_bangumi)
+
+> [!IMPORTANT]
 > 由于dandanplay目前暂未开放登录与发送弹幕的相关接口，本项目目前处于不可用状态。
 
 > [!IMPORTANT]
